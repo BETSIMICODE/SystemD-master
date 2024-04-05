@@ -1,0 +1,55 @@
+@import "variables.scss";
+
+.main-bg{
+  background-color: $main-bg;
+}
+.contrasted-bg{
+  background-color: $contrasted-bg;
+}
+.contrasted-plus-bg{
+  background-color: $contrasted-plus-bg;
+}
+.light-bg{
+  background-color: $light-bg ;
+}
+.lighter-bg{
+  background-color:$lighter-bg;
+}
+.focus-bg{
+  background-color: $focus-color ;
+}
+
+.main-color, .main-color *{
+ color: $main-color;
+}
+.plus-color, .plus-color *{
+ color: $plus-color;
+}
+.focus-color, .focus-color *{
+  color: $focus-color;
+}
+.minus-color, .minus-color *{
+color: $minus-color;
+}
+.info-color, .info-color *{
+ color: $info-color;
+}
+.contrasted-color{
+  color: $contrasted-bg !important;
+}
+
+.focus-border{
+  border: 2px solid $focus-color;
+}
+.blue-highlight-border{
+  border: 2px solid $blue-highlight-color;
+}
+.backdrop{
+  background-color: $contrasted-bg;
+}
+.danger-bg{
+  background-color: $danger-color;
+}
+.danger-color{
+  color: $danger-text !important;
+}

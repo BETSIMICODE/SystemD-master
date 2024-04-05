@@ -1,0 +1,191 @@
+<template name="categoryItem">
+    <li class="categoryItem">
+        <div class="collapsible-header active flex shadow relative {{#if isCurrentCategory}}currentCategory{{/if}}">
+            {{#if isEditing}}
+                <div class="closeNewCategory" closeEditName></div>
+                <form id="editCategoryForm" action="" editCategoryForm class="flex  ">
+                    <div class="input-field flex-auto small-padding small-margin" openSettings>
+                        <input id="editCategoryName" type="text" value="{{category.symEnc_name}}" required
+                               class="validate no-margin">
+                        <label for="editCategoryName">{{__ ".categoryName"}}</label>
+                    </div>
+                    <div class="" openSettings>
+                        <button href="" class="btn btn-floating waves-effect waves-light"><i
+                                class="material-icons prefix">done</i></button>
+                    </div>
+                </form>
+            {{else}}
+                <div class="flex-auto elipsis categoryTitle" title="{{category.symEnc_name}}">
+                    <i class="material-icons link">folder</i><span>{{category.symEnc_name}}</span>
+                </div>
+                {{#if showDelete}}
+
+                    <div class="row action no-margin">
+                        <div class="col s12 center-align no-padding relative">
+
+                            <a href="" class="absolute tooltipped waves-light waves-effect"
+                               data-position="bottom"
+                               data-delay="50" data-tooltip="{{__ ".abort"}}" abortDelete style="right: 0;top: 6px"><i
+                                    class="material-icons left">clear</i></a>
+
+
+                            <p class="left-align infoQuotes" style="margin: 35px 0 15px 0; text-transform: none;">
+                                {{__ ".deleteInfo"}}
+                            </p>
+                            <button class="btn full-width  btn-danger center-align waves-effect waves-light shadow"
+                                    delete><i
+                                    class="material-icons left">delete_forever</i>{{__ '.delete'}}
+                            </button>
+
+                        </div>
+                    </div>
+                {{else}}
+                    {{#if isAdmin}}
+                        <div class="relative" style="width: 40px">
+                            <div class="fixed-action-btn horizontal absolute categorySettings" openSettings>
+                                <a class="btn-floating  ">
+                                    <i class="material-icons">settings</i>
+                                </a>
+                                <ul>
+                                    <li><a class="btn-floating tooltipped waves-light waves-effect"
+                                           data-position="bottom"
+                                           data-delay="50" data-tooltip="{{__ ".delete"}}" showDelete><i
+                                            class="material-icons">delete_forever</i></a>
+                                    </li>
+                                    {{#if canMoveDown}}
+                                        <li><a class="btn-floating tooltipped waves-light waves-effect"
+                                               data-position="bottom"
+                                               data-delay="50" data-tooltip="{{__ ".moveDown"}}" movedown><i
+                                                class="material-icons">keyboard_arrow_down</i></a>
+                                        </li>
+                                    {{/if}}
+                                    {{#if canMoveUp}}
+                                        <li><a class="btn-floating tooltipped waves-light waves-effect"
+                                               data-position="bottom"
+                                               data-delay="50" data-tooltip="{{__ ".moveUp"}}" moveUp><i
+                                                class="material-icons">keyboard_arrow_up</i></a>
+                                        </li>
+                                    {{/if}}
+                                    <li><a class="btn-floating tooltipped waves-light waves-effect"
+                                           data-position="bottom"
+                                           data-delay="50" data-tooltip="{{__ ".edit"}}" editName><i
+                                            class="material-icons">mode_edit</i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+            <div class="relative notifyCategory">
+                <a class="btn-floating tooltipped waves-light waves-effect"
+                   data-position="bottom"
+                   data-delay="50" data-tooltip="{{#if isMemberNotified}}
+                    {{__ ".disableNotifications"}}{{else}}{{__ ".enlableNotifications"}}{{/if}}" toggleNotifications>
+                    <i class="material-icons {{#if isMemberNotified}}
+                        danger-color{{/if}}">{{#if isMemberNotified}}
+                        notifications{{else}}notifications_off{{/if}}</i>
+                </a>
+            </div>
+
+        </div>
+        <div class="collapsible-body transparent no-padding relative" id="categoryBody-{{category.categoryId}}">
+            {{#if isDraggingTopic}}
+                <div class="absolute topicDropBasket center-align">
+                    <i class="material-icons plus-color ">move_to_inbox</i>
+                </div>
+            {{/if}}
+
+            {{#if length topics}}
+                <ul class="collection shadow ">
+
+                    {{#each topic in topics}}
+                        {{#if compare topic.elementType "==" "topic"}}
+                        {{>topicItem topic= topic}}
+                            {{else}}
+                            {{#if compare topic.elementType "==" "pad"}}
+                                {{>spreadsheetItem spreadsheet=topic isPad=true}}
+
+                            {{else}}
+                                {{>spreadsheetItem spreadsheet=topic isPad=false}}
+                            {{/if}}
+                            {{/if}}
+                    {{/each}}
+                </ul>
+            {{else}}
+                {{#if isLoading}}
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                {{else}}
+                    {{#unless showNewTopic}}
+                        <div class="small-padding" style="margin-bottom: -40px">
+                            <p class="infoQuotes" style="margin: 5px;"><i>{{__ ".noTopics"}}</i></p>
+                        </div>
+                    {{/unless}}
+                {{/if}}
+            {{/if}}
+            {{#if showNewTopic}}
+                <div class="closeNewCategory" closeNewTopic></div>
+                <form action="" newTopicForm class="flex  " style="padding: 20px 15px 0 10px; position: relative;
+    z-index: 2001;" elementType="{{showNewTopic}}">
+                    <div class="input-field flex-auto small-padding small-margin">
+                        <input id="newTopicName" type="text" required
+                               class="validate no-margin">
+                        <label for="newTopicName">{{#if compare showNewTopic "==" "topic"}}{{__ ".topicName"}}{{else}}{{#if compare showNewTopic "==" "pad"}}{{__ "spreadsheetList.PadName"}}{{else}}{{__ "spreadsheetList.SpreadsheetName"}}{{/if}}{{/if}}</label>
+                    </div>
+                    <div class="">
+                        <button href="" class="btn btn-floating waves-effect waves-light">
+                            {{#if isCreating}}{{>circleSpinner}}{{else}}<i
+                                    class="material-icons prefix">done</i>{{/if}}</button>
+                    </div>
+                </form>
+
+            {{/if}}
+            {{#unless showNewTopic}}
+                {{#if isChoosingType}}
+                    <div class="closeNewCategory" closeNewTopic></div>
+<div class="row no-margin shadow"  style="position: relative;
+    z-index: 2001;">
+    <div class="col s4 choosingTypeBtn tooltipped waves-light waves-effect center-align"
+         data-position="top"
+         data-delay="50"
+         data-tooltip="{{__ "spreadsheetList.newSpreadsheet"}}" openNewTopic elementType="spreadsheet"><i class="material-icons" style="transform: rotate(90deg)">view_comfy</i></div>
+    <div class="col s4 choosingTypeBtn tooltipped waves-light waves-effect center-align"
+         data-position="top"
+         data-delay="50"
+         data-tooltip="{{__ "spreadsheetList.newPad"}}" openNewTopic  elementType="pad"><i class="material-icons" >format_align_justify</i></div>
+    <div class="col s4 choosingTypeBtn tooltipped waves-light waves-effect center-align"
+         data-position="top"
+         data-delay="50"
+         data-tooltip="{{__ ".newTopic"}}" openNewTopic  elementType="topic"><i class="material-icons">chat</i></div>
+</div>
+                {{else}}
+                    <div class="relative">
+                        <a href="" class="btn btn-floating tooltipped waves-light waves-effect absolute newTopicBtn"
+                           data-position="left"
+                           data-delay="50"
+                           data-tooltip="{{__ ".chooseType"}}"
+                           style="{{#if isDesktop}}
+                           opacity: 0;right: 55px;
+                           {{else}}
+                           right: 25px !important;opacity: 1 !important;
+                           {{/if}}"><i
+                                class="material-icons right" chooseType >add</i></a>
+                    </div>
+                {{/if}}
+            {{/unless}}
+            {{#unless showNewTopic}}
+                <div class="small-padding relative center-align transparent">
+                    {{#if hasMore}}
+                        <a href="" class="link showMoreTopics" showMore><i
+                                class="material-icons">expand_more</i><span>{{__ ".showMore"}}</span></a>
+                    {{else}}
+
+                        <div style="height: 5px"></div>
+
+                    {{/if}}
+                </div>
+            {{/unless}}
+        </div>
+    </li>
+</template>

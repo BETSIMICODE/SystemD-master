@@ -1,0 +1,70 @@
+@import "{}/client/scss/variables.scss";
+
+#projectLayout{
+  .loader-container{
+      padding-top: calc(50vh - 70px);
+    #encryptionLoader{
+      padding: 25px 10px 0px 10px;
+    }
+  }
+  .projectNavbar{
+    box-shadow: none;
+    .topNavbar{
+      background: linear-gradient(to bottom, $contrasted-plus-bg 0%,$contrasted-bg 100%);
+      height: 65px;
+      a{
+        height: 100%;
+        margin-left: 70px;
+      }
+      .navProjectAvatar{
+        width: 55px;
+        height: 55px;
+        border-radius: 10px;
+        border: 2px solid $blue-highlight-color;
+        overflow: hidden;
+        margin: 5px;
+      }
+      h4{
+        font-size: 1.2em;
+        position: relative;
+        top:22px;
+        height: 30px;
+        margin: 0;
+      }
+    }
+    .sections{
+      margin: -1px 0 ;
+      height: 65px;
+      z-index: 300;
+      a{
+       width: 100%;
+        height: 100%;
+        text-align: center;
+        padding: 0px;
+        background-color: $contrasted-bg;
+        border-bottom: 2px solid $blue-highlight-color;
+
+        i{
+          color: $link-color;
+         height: 100%;
+        }
+      }
+      .active{
+
+        a{
+          background: linear-gradient(to bottom, $blue-highlight-color 0%,$main-bg 100%);
+          border-left: 2px solid $blue-highlight-color !important;
+          border-right: 2px solid $blue-highlight-color !important;
+          border-top: 2px solid $blue-highlight-color !important;
+          border-bottom: none !important;
+          i{
+            color: $plus-color !important;
+          }
+        }
+
+      }
+    }
+
+  }
+}
+

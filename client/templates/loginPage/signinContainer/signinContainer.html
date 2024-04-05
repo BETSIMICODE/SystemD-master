@@ -1,0 +1,43 @@
+<template name="signinContainer">
+    <div class="customCarousel " data-indicators="true" style="left:{{left}}">
+        <div class="customCarousel-item  main-color signinInfo" href="#one!">
+            <div class="row">
+                <div class="col s12 ">
+                    <p>{{__ '.psignin'}}
+                        <b><a href = {{__ '.linkSignin'}}>{{__ '.endtoendencrypted'}}</a></b>. </p>
+                    <p class="infoQuotes">{{__ '.p2signin'}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 right-align">
+                    <a id="btn" class="btn-flat btnStandard right-align waves-effect waves-light shadow" next><i class="material-icons right">arrow_forward</i>{{__ '.next'}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="customCarousel-item  main-color signinInfo" href="two">
+            <div class="row">
+                <div class="col s12 ">
+                    <p>
+                        {{__ '.p3signin'}} <b>{{__ '.p3-1signin'}}</b> {{__ '.p3-2signin'}} <b>{{__ '.p3-3signin'}}</b>
+                    </p>
+                    <p>
+                        {{__ '.p3-4signin'}}
+                    </p>
+                    <h6 class="infoQuotes plus-color"><span>{{__ '.spanSignin'}}</span>
+                    </h6>
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 right-align">
+                    <a class="btn btnStandard right-align waves-effect waves-light shadow" next><i class="material-icons right">arrow_forward</i>{{__ '.next'}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="customCarousel-item main-color" href="#three!">
+            {{>signinForm}}
+        </div>
+    </div>
+</template>

@@ -1,0 +1,31 @@
+<template name="detailArrow">
+    <div id="detailIconMarker">
+        <div class="iconMarkerHead center-align relative" style="background-color: {{marker.arrow.symEnc_color}}">
+            <a href="" class="btn btn-floating waves-effect waves-light editColorBtn" editColor><i class="material-icons">color_lens</i></a>
+
+            <div class="relative iconContainer">
+
+                <i class="material-icons white-text large small-padding small-margin">call_made</i>
+
+
+            </div>
+
+        </div>
+        {{#if editingColor}}
+            <div class="editIcon">
+                <div class="flex colorPicker">
+                    {{#each color in colors}}
+                        <div class="flex-auto center-align">
+
+                            <a href="" id="color-{{color}}"
+                               class="colorItem shadow {{#if compare marker.arrow.symEnc_color "=="
+                                                             color}}selectedColor{{/if}} {{#if getIndex colorLegend @index}}tooltipped{{/if}}" data-position="bottom"
+                               data-delay="50" data-tooltip="{{getIndex colorLegend @index}}"
+                               style="background-color: {{color}}" selectColor></a>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</template>

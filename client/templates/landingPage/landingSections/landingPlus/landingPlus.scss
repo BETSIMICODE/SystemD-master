@@ -1,0 +1,36 @@
+@import "{}/client/scss/variables.scss";
+
+
+#landingPlus{
+  .btn-large{
+    border: 2px solid $focus-color;
+    font-size: 120%;
+    background-color: transparent;
+  }
+  .btn-large:focus, .btn-large:hover{
+    background-color: $contrasted-bg !important;
+  }
+  .container{
+    padding: calc(50vh - 150px) 0;
+    overflow: hidden;
+  }
+  .col{
+    position: relative;
+    margin-top: 20px;
+    img{
+      position: relative;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      padding: 5px;
+      border: 3px solid $focus-color;
+
+    }
+
+  .hand-police{
+    font-size: 1.7em;
+  }
+
+  }
+
+}

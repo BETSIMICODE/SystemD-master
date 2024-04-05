@@ -1,0 +1,21 @@
+@import "{}/client/scss/variables.scss";
+
+#userOptions{
+    .lang{
+        position: absolute;
+        top: 8px;
+        left: 80px;
+        height: 20px;
+        width: 39px;
+        font-size: 13px;
+        background-color: $lighter-bg;
+        padding: 0;
+    }
+    .dropdown-content {
+        background-color: $main-bg;
+    }
+
+    .caret {
+        color: $main-color
+    }
+}

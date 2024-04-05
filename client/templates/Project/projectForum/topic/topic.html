@@ -1,0 +1,37 @@
+<template name="topic">
+    {{#unless isRefreshing}}
+        <div id="topic" class="full-height flex-auto" style="{{#if isDesktop}}padding-top:10px{{/if}}">
+
+            {{#if currentTopic}}
+                {{>topicHeader currentTopic=currentTopic}}
+                {{#if pinnedPublication}}
+                    <div class="row">
+                        <div class="col s12 ">
+                            <div class="publicationBox shadow small-padding pinnedPublication">
+
+                                {{>publicationItem publication=pinnedPublication topic=currentTopic refreshScrollbar=refreshScrollbar pinned=true}}
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+                <div class="row">
+                    <div class="col s12 ">
+                        <div class="publicationBox shadow small-padding">
+                            {{>newPublication topic=currentTopic}}
+                        </div>
+
+
+                    </div>
+                </div>
+
+                {{> publicationsList topic=currentTopic refreshScrollbar=refreshScrollbar}}
+            {{else}}
+                {{>topicLoader}}
+            {{/if}}
+            {{#if file}}
+                {{>fullScreenFile file=file}}
+            {{/if}}
+
+        </div>
+    {{/unless}}
+</template>

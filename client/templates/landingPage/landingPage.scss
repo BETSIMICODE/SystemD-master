@@ -1,0 +1,38 @@
+@import "{}/client/scss/variables.scss";
+
+.landing-page{
+  width: 100%;
+  overflow-x: hidden;
+  .btn-large{
+    border: 2px solid $focus-color;
+    font-size: 120%;
+    background-color: transparent;
+  }
+  .btn-large:focus, .btn-large:hover{
+    background-color: $contrasted-bg !important;
+  }
+  .landing-section{
+    position: relative;
+    min-height: calc(100vh );
+    .nextSlideBtn{
+      position: absolute;
+      bottom: 40px;
+      width : 60px;
+      height:60px;
+      border-radius:50%;
+      right: 40px;
+      background-color: $light-bg;
+      opacity: 0.5;
+      .material-icons{
+        position: relative;
+        left:0px;
+        top: 0px;
+      }
+    }
+    .nextSlideBtn:hover{
+      opacity: 0.9;
+    }
+  }
+}
+
+

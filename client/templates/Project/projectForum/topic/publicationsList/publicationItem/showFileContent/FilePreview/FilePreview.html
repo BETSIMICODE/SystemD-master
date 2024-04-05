@@ -1,0 +1,46 @@
+<template name="filePreview">
+    <div class="selectionContainer">
+        <div class="fileIcon   {{#unless onFilePage}}focusFile{{/unless}}"
+             id="filePreviewCarousel-{{carouselIndex index}}"  draggable="true" cloudIconRef="file-{{file._id}}">
+            <div class="centerPoint" cloudIconRef="file-{{file._id}}"></div>
+        <!--        {{#if compare type "==" "video"}}-->
+            <!--            <video controls>-->
+
+            <!--                <source src="" type="{{file.symEnc_mimeType}}" id="video-{{file._id}}">-->
+            <!--                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>-->
+            <!--            </video>-->
+                <!--        {{else}}-->
+                <!--            {{#if compare type "==" "audio"}}-->
+                <!--                <audio controls title="{{file.symEnc_fileName}}">-->
+                <!--                    <source src="" type="{{file.symEnc_mimeType}}" id="audio-{{file._id}}">-->
+                <!--                    Your browser does not support the audio element.-->
+                <!--                </audio>-->
+
+                    <!--            {{else}}-->
+
+                <img src="{{getFileIcon file.symEnc_mimeType}}" alt="" class="shadow"
+                     title="{{file.symEnc_fileName}}" id="img-{{file._id}}" cloudIconRef="file-{{file._id}}">
+
+                    <!--            {{/if}}-->
+                <!--        {{/if}}-->
+            <div class="fileLabel elipsis" title="{{file.symEnc_fileName}}">
+                <span cloudIconRef="file-{{file._id}}">{{file.symEnc_fileName}}</span>
+            </div>
+        </div>
+        {{#unless file.deleted}}
+            {{#unless onFilePage}}
+                    <a href="" role="button"
+                       class="btn btn-floating download-file download-file-preview shadow waves-effect waves-light tooltipped"
+                       data-position="top" data-delay="50" data-tooltip="{{__ ".show"}}"
+                       downLoadFile id="downLoadLink-{{file._id}}" style="
+                       position: absolute;
+    top: -5px;
+    right: -15px;
+    background-color: #2E3C43;
+    transition: 0.3s;"><i class="material-icons">remove_red_eye</i></a>
+
+            {{/unless}}
+        {{/unless}}
+    </div>
+
+</template>

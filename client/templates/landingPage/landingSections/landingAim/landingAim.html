@@ -1,0 +1,59 @@
+<template name="landingAim">
+<div class="container">
+    <div class="row no-margin">
+        <div class="col m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="/images/presSystemD.gif" decoding="async" importance="low" loading="lazy">
+                </div>
+                <div class="card-content main-bg main-color ">
+                    <h5 class="card-title hand-police focus-color">{{__ '.ourPurpose'}} :</h5>
+                    <p>{{__ '.purpose'}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col m6 ways">
+            <h6 class="center-align main-color">{{__ '.3DevPhases'}}</h6>
+            <ul class="collapsible popout contrasted-bg" data-collapsible="accordion">
+                <li class="contrasted-bg">
+                    <div class="collapsible-header active ">
+                        <div class="valign-wrapper logoContainer">
+                            <img src="/images/categories/construction.png" alt="" class="shadow">
+                        </div>
+
+                        <h5 class="main-color valign-wrapper">{{__ '.createTool'}}</h5>
+                    </div>
+                    <div class="collapsible-body main-color gradiant"><span>{{__ '.cTool'}}</span></div>
+                </li>
+                <li class="contrasted-bg">
+                    <div class="collapsible-header ">
+                        <div class="valign-wrapper logoContainer">
+                            <img src="/images/categories/logistic_and_transport.png" alt="" class="shadow">
+                        </div>
+
+                        <h5 class="main-color valign-wrapper">{{__ '.doOfSystemD'}}</h5>
+                    </div>
+                    <div class="collapsible-body main-color gradiant"><span>{{__ '.dOfSystD'}}</span></div>
+                </li>
+                <li class="contrasted-bg">
+                <div class="collapsible-header ">
+                    <div class="valign-wrapper logoContainer">
+                        <img src="/images/categories/solidarity.png" alt="" class="shadow">
+                    </div>
+
+                    <h5 class="main-color valign-wrapper">{{__ '.developFreeNetwork'}}</h5>
+                </div>
+                <div class="collapsible-body main-color gradiant"><span>{{__ '.dFreeNetwork'}}</span></div>
+            </li>
+            </ul>
+
+        </div>
+    </div>
+    {{#if isDesktop}}
+        <a href="#landingPlus" class="nextSlideBtn waves-effect waves-light info-color">
+            <i class="material-icons medium">
+                arrow_downward</i>
+        </a>
+    {{/if}}
+</div>
+</template>

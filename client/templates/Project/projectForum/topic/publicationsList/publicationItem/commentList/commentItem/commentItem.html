@@ -1,0 +1,79 @@
+<template name="commentItem">
+    <li class="commentItem flex relative">
+
+        <div class="userAvatar shadow">
+            {{>avatar userId=(userIdFromMemberId comment.createdBy)}}
+        </div>
+        <div class="commentContent flex-auto small-shadow relative">
+            <div class="absolute" style="top:1.4em; right: -10px">
+                {{>likeBox class=comment}}
+            </div>
+            <div class="commentHeader flex">
+                <div class="username">
+                    {{usernameFromMemberId comment.createdBy}}
+                </div>
+                <div class="commentDate flex-auto right-align">
+                    {{formatDate comment.createdAt}}
+                </div>
+            </div>
+
+            <div class="left-align commentSmartContent relative">
+                {{#if decryptedContent}}
+                    {{#if isEditing}}
+                        {{>editComment content=decryptedContent refreshScrollbar=refreshScrollbar comment=comment abortEdition=abortEdition}}
+                    {{else}}
+                        {{>smartContent content=decryptedContent refreshScrollbar=refreshScrollbar }}
+                    {{/if}}
+                {{/if}}
+
+            </div>
+            <div class="commentFooter">
+                {{#unless isEditing}}
+                    {{#unless compare showAnswer '||' comment.commentCount}}
+                        <a href="" class="link" answerComment><i class="material-icons">question_answer</i>{{__
+                                ".answer"}}
+                        </a>
+                    {{/unless}}
+                    {{#if  isDeletable }}
+
+                        <a href="" class="link" editComment><i class="material-icons">edit</i>{{__ "publicationItem.edit"}}</a>
+                        <a href="" class="link" deleteComment><i class="material-icons">delete</i>{{__ ".delete"}}</a>
+                    {{/if}}
+                {{/unless}}
+            </div>
+            {{#if compare showAnswer '||' comment.commentCount}}
+                <div class="subCommentsContainer relative">
+                    <hr class="hr"/>
+                    <div class="newComment flex newSubComment">
+                        <div class="userAvatar shadow">
+                            {{>avatar userId=(currentUserId)}}
+                        </div>
+                        <div class="flex-auto">
+                            {{>newSubComment comment=comment}}
+                        </div>
+
+                    </div>
+                    <ul class="commentListUl">
+                        {{#each comment in comments}}
+                            {{>subComment comment=comment refreshScrollbar=refreshScrollbar}}
+                        {{/each}}
+                    </ul>
+                    {{#if loadingMore}}
+                        <div class="progress">
+                            <div class="indeterminate"></div>
+                        </div>
+                    {{/if}}
+                    {{#if commentLeft}}
+                        <div class="">
+                            <a href="" class=" showMoreComment" loadMoreComments>
+                                <i class="material-icons">expand_more</i>
+                                {{__ ".see"}} {{commentLeft}} {{__ ".moreComments"}}
+                            </a>
+                        </div>
+
+                    {{/if}}
+                </div>
+            {{/if}}
+        </div>
+    </li>
+</template>

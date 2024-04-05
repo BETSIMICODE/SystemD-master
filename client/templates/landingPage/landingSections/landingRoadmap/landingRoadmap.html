@@ -1,0 +1,55 @@
+<template name="landingRoadmap">
+
+    <div class="container">
+
+            <h3 class="center-align hand-police main-color">{{__ '.roadmap'}}</h3>
+
+        <div class="row main-color">
+            <div class="col m4">
+
+                <ul class=" shadow">
+                    <h5 class="center-align">{{__ '.firstPhase'}}</h5>
+                    <li class="highlighted">{{__ '.pfirstPhase'}}</li>
+                    <li class="highlighted">{{__ '.p2firstPhase'}}</li>
+                    <li class="highlighted">{{__ '.p3firstPhase'}}</li>
+                    <li class="highlighted">{{__ '.p4firstPhase'}}</li>
+                    <li class="highlighted">{{__ '.p5firstPhase'}}</li>
+                    <li class="highlighted">{{__ '.p6firstPhase'}}</li>
+                    <li class="highlighted">{{__ '.p7firstPhase'}}</li>
+                    <li class="highlighted">{{__ '.p8firstPhase'}}</li>
+                </ul>
+            </div>
+            <div class="col m4">
+
+                <ul class=" shadow"><h5 class="center-align">{{__ '.secondPhase'}}</h5>
+                    <li>{{__ '.psecondPhase'}}</li>
+                    <li>{{__ '.p2secondPhase'}}</li>
+                    <li>{{__ '.p3secondPhase'}}</li>
+                    <li>{{__ '.p4secondPhase'}}</li>
+                    <li>{{__ '.p5secondPhase'}}</li>
+                    <li>{{__ '.p6secondPhase'}}</li>
+                    <li class="highlighted">{{__ '.p7secondPhase'}}</li>
+                </ul>
+            </div>
+            <div class="col m4 ">
+
+                <ul class=" shadow">
+                    <h5 class="center-align">{{__ '.thirdPhase'}}</h5>
+                    <li>{{__ '.pthirdPhase'}}</li>
+                    <li>{{__ '.p2thirdPhase'}}</li>
+                    <li>{{__ '.p3thirdPhase'}}</li>
+                    <li>{{__ '.p4thirdPhase'}}</li>
+                    <li>{{__ '.p5thirdPhase'}}</li>
+                    <li>{{__ '.p6thirdPhase'}}</li>
+                </ul>
+            </div>
+        </div>
+
+        {{#if isDesktop}}
+            <a href="#landingContact" class="nextSlideBtn waves-effect waves-light info-color">
+                <i class="material-icons medium">
+                    arrow_downward</i>
+            </a>
+        {{/if}}
+    </div>
+</template>

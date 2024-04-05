@@ -1,0 +1,7 @@
+node_modules/
+settings.json
+.vscode/
+/google-services.json
+
+
+cordova-build-override/google-services.json

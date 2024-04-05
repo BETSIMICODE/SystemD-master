@@ -1,0 +1,78 @@
+<template name="calendarSettings">
+    <div id="calendarSettings">
+        <h5>{{__ ".title"}}</h5>
+        {{#if isAdmin project._id}}
+            <div class="row no-margin">
+                <div class="col s12">
+                    <div class="hr"></div>
+                    <p class="sectionLabel">{{__ ".defaultView"}}</p>
+                    <div class="row iconPicker no-margin" style="background-color:{{selectedColor}}">
+                        <a href="" id="defaultView#days"
+                           class="iconItem col s4 no-padding center-align tooltipped {{#if compare project.private.calendar.defaultView '==' 'days'}} selected {{/if}}" data-position="bottom" data-delay="250"
+                           data-tooltip="{{__ "projectCalendar.daysView"}}" selectDefaultView>
+                            <i class="material-icons" style="transform: rotate(90deg)">view_list</i>
+                        </a>
+                        <a href="" id="defaultView#month"
+                           class="iconItem col s4 no-padding center-align tooltipped {{#if compare project.private.calendar.defaultView '==' 'month'}} selected {{/if}}" data-position="bottom" data-delay="250"
+                           data-tooltip="{{__ "projectCalendar.monthView"}}" selectDefaultView>
+                            <i class="material-icons">view_comfy</i>
+                        </a>
+                        <a href="" id="defaultView#list"
+                           class="iconItem col s4 no-padding center-align tooltipped {{#if compare project.private.calendar.defaultView '==' 'list'}} selected {{/if}}" data-position="bottom" data-delay="250"
+                           data-tooltip="{{__ "projectCalendar.listView"}}" selectDefaultView>
+                            <i class="material-icons">format_list_bulleted</i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        <div class="row no-margin">
+            <div class="col s12">
+                <div class="hr"></div>
+                <p class="sectionLabel">{{__ ".colorLegend"}}</p>
+{{>colorLegend callback=colorLegendCallback colorLegend=colorLegend}}
+            </div>
+        </div>
+        <div class="row no-margin">
+            <div class="col s12 center-align">
+                <div class="hr"></div>
+                <p class="sectionLabel left-align">{{__ ".exportICS"}}</p>
+                <p class="infoQuotes left-align">{{__ '.exportICSInfos'}}</p>
+
+                <a href="" class="btn btnStandard waves-effect waves-light" exportICS style="margin-top: 10px"><i class="material-icons left">cloud_upload</i>{{__
+                        ".export"}}</a>
+            </div>
+        </div>
+        <div class="row no-margin">
+            <div class="col s12 center-align">
+                <div class="hr"></div>
+                <p class="sectionLabel left-align">{{__ ".importICS"}}</p>
+                <p class="infoQuotes left-align">{{__ '.importICSInfos'}}</p>
+                <input id="importICS" type="file" importICSInput style="display: none">
+                <a href="" class="btn btnStandard waves-effect waves-light" importICSBtn style="margin-top: 10px"><i class="material-icons left">cloud_download</i>{{__
+                        ".import"}}</a>
+            </div>
+        </div>
+        {{#if isAdmin }}
+            <div class="row">
+                <div class="col s12 center-align">
+                    <div class="hr"></div>
+                    <p class="sectionLabel left-align">{{__ ".deleteOlds"}}</p>
+                    <p class="infoQuotes left-align">{{__ '.deleteOldsInfo'}}</p>
+                    <div class="input-field col s12 no-margin">
+                        <i class="material-icons prefix" style="left:0; top:0.5em">av_timer</i>
+                        <select id="duration">
+                            {{#each option in durationOptions}}
+                                <option value="{{option.value}}">{{option.label}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <a href="" class="btn btn-danger waves-effect waves-light" deleteOldActivities><i class="material-icons left">delete_forever</i>{{__
+                            ".delete"}}</a>
+                </div>
+            </div>
+        {{/if}}
+
+    </div>
+</template>

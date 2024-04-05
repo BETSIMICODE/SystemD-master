@@ -1,0 +1,93 @@
+@import "{}/client/scss/variables.scss";
+//@import "{}/client/scss/pluginsLib/leaflet.css";
+
+.taskItem {
+  margin: 5px 0;
+  border-left: 12px solid;
+  padding: 5px;
+  display: block;
+  color: $main-color;
+  background-color: $light-bg;
+  transition: 0.3s;
+  position: relative;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  *{
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  .detail{
+    font-size: 0.9em;
+    font-style: italic;
+    opacity: 0.8;
+  }
+  .taskInfos {
+    font-size: 0.9em;
+
+    div{
+      display: inline-block;
+      position: relative;
+      margin-left: 5px;
+      i {
+        position: relative;
+        top:3px;
+        left: 2px;
+      font-size: 16px;
+    }
+    }
+
+  }
+  &:hover{
+    background-color: $lighter-bg !important;
+    color: $plus-color
+  }
+  &.selected{
+    background-color: $lighter-bg !important;
+    color: $plus-color;
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba($plus-color,0.75) !important;
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba($plus-color,0.75) !important;
+    box-shadow: inset 0px 0px 5px 0px rgba($plus-color,0.75) !important;
+  }
+  &.participating::after {
+    content: " ";
+    background-color: $plus-color !important;
+    display: block;
+    z-index: 30;
+    position: absolute;
+    top: 8px;
+    left: -9.5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+  .start{
+    background-color: $blue-highlight-color;
+    //float: right;
+    color: $plus-color;
+    opacity: 0.8;
+    display: inline-block;
+    line-height: 12px;
+    height: 18px;
+    font-size: 12px;
+    padding: 0 3px;
+    border-radius: 7.5px;
+
+    position: relative;
+    bottom: -2px;
+&:hover{
+  opacity: 1 !important;
+}
+    i{
+      font-size: 12px;
+      padding-right: 5px;
+      display: inline-block;
+      position: relative;
+      margin-top:-1px;
+      margin-left: -2px;
+    }
+    span{
+position: relative;
+      top:-2px;
+    }
+  }
+}

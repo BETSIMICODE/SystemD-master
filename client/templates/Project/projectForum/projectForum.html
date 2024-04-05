@@ -1,0 +1,94 @@
+<template name="projectForum">
+    <div id="projectForum" class=" bird-background row no-margin"
+         style="{{#if
+                 isDesktop}}padding-top: 0px; height: 100vh; width: calc( 100% - 210px ){{else}}padding-top: 0;width: 100%;{{/if}}">
+        {{#if isDesktop}}
+            <div class="blurTop"></div>
+        {{/if}}
+        <div class="forumContainer col s12 flex   {{#if
+                isDesktop}}full-height relative {{/if}}  no-padding ">
+            {{#if showCategories}}
+
+                <div id="categoryListContainer" class="beautify-scroll-container main-color"
+                     style="{{#if isDesktop}}
+                     height:  100vh ;width: 22em;padding: 40px 0 250px 0;
+                     {{else}}
+                         {{#if isTablet}}
+                         margin: 0 20%;
+                         {{/if}}
+                             padding: 20px 0 40px 0;margin-bottom: 40px;
+                     {{/if}}"
+                >
+                    {{>categoryList currentProject=currentProject categories=categories}}
+                </div>
+            {{/if}}
+            {{#if showFiles}}
+                <div id="topicContainer"
+                     class="flex-auto main-color topicContainer uploadFileZone  sexyScrollbar center-align "
+                     style="{{#if isDesktop}}
+                     height:  100vh ;
+                             padding: 40px 0 300px 0;
+                     {{else}}
+                         {{#if isTablet}}
+                         margin: 0 10%;
+                         {{/if}}
+                             padding: 30px 0 300px 0;
+                     {{/if}}"
+                >
+                    <div class="topicSubContainer center-align ">
+                        {{>files currentProject=currentProject refreshScrollbar=refreshScrollbar}}
+                    </div>
+                </div>
+            {{else}}
+
+                {{#if showTopic}}
+                    <div id="topicContainer"
+                         class="flex-auto  center-align {{#unless isPad}} main-color{{/unless}} {{#if compare
+                                                                                                      isSpreadsheet "||"
+                                                                                                      isPad}} full-height spreadsheetContainer beautify-scroll-container{{else}} topicContainer sexyScrollbar{{/if}}"
+                         style="{{#if isDesktop}}
+                         height:  100vh ;
+                             {{#if compare isSpreadsheet "||" isPad}}
+
+                             padding: 40px 0 0px 0;
+                             {{else}}
+                             padding: 40px 0 300px 0;
+                             {{/if}}
+                         {{else}}
+
+                             {{#if compare isSpreadsheet "||" isPad}}
+                             height:  calc(100vh + 30px) !important;
+                                     padding: 40px 0 0px 0;
+                             {{else}}
+                                 {{#if isTablet}}
+                                 margin: 0 10%;
+                                 {{/if}}
+                                     padding: 30px 0 300px 0;
+                             {{/if}}
+
+                         {{/if}}"
+                    >
+                        <div class="topicSubContainer center-align {{#if compare isSpreadsheet "||"
+                                                                         isPad}} full-height {{/if}}">
+                            {{#if isSpreadsheet}}
+                                {{>spreadsheet refreshScrollbar=refreshScrollbar}}
+                            {{else}}
+                                {{#if isPad}}
+                                    {{>pad refreshScrollbar=refreshScrollbar}}
+                                {{else}}
+                                    {{>topic refreshScrollbar=refreshScrollbar}}
+                                {{/if}}
+                            {{/if}}
+                        </div>
+
+                    </div>
+                {{/if}}
+            {{/if}}
+        </div>
+        {{#if compare isDesktop "&!" isSpreadsheet}}
+            {{#if compare isDesktop "&!" isPad}}
+                <div class="blurBottom"></div>
+            {{/if}}
+        {{/if}}
+    </div>
+</template>

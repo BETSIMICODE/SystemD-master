@@ -1,0 +1,31 @@
+@import "{}/client/scss/variables.scss";
+
+#landingTools{
+  .container{
+    padding: calc(50vh - 210px) 0;
+    .tools{
+      .material-icons{
+        font-size: 3em;
+        color: $focus-color;
+        margin: 0 10px 0 -10px;
+      }
+
+      h6{
+        color : $plus-color;
+        font-size: 1.2em;
+      }
+
+    }
+
+    .card-image{
+      background-color: #a0681b;
+    }
+    .card{
+      transition: box-shadow .5s, background-color .5s;
+    }
+    .card:hover{
+      background-color: $lighter-bg;
+      box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
+    }
+  }
+}

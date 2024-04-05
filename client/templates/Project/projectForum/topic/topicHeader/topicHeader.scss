@@ -1,0 +1,54 @@
+@import "{}/client/scss/variables.scss";
+
+#topicHeader{
+  justify-content: center;
+  #editTopicName{
+    font-size: 1.5em;
+  }
+  .topicTitle{
+    font-size: 1.5em;
+    line-height: 40px;
+    padding-right: 10px;
+    color: $plus-color;
+
+    .placeholder{
+      height: 1.7em;
+      width: 66%;
+      overflow: hidden;
+      margin: 2.5px auto 2.5px 0px;
+      border-radius: 5px;
+    }
+  }
+  .btn-floating{
+    background-color: $contrasted-plus-bg;
+    i{
+      color: $main-color
+    }
+    &:hover{
+      background-color: $blue-highlight-color !important;
+i{
+  color: $plus-color
+}
+
+  }
+  }
+  .fixed-action-btn{
+
+    top:0;
+  left: 0;
+    padding: 0;
+    ul{
+      top:25px;
+      right: 10px;
+      padding-right: 15px;
+      height: 50px;
+      li{
+        margin: 0 3px 0 0;
+        a{
+          background-color: $lighter-bg;
+        }
+      }
+    }
+
+  }
+}

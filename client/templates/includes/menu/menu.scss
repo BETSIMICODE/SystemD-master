@@ -1,0 +1,118 @@
+@import "{}/client/scss/variables.scss";
+
+.general-menu {
+  padding: 0 0px !important;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  #menuHeader {
+    background: linear-gradient(to bottom, $contrasted-plus-bg 0%, $contrasted-bg 100%);
+  }
+
+  #menuProjectsContainer {
+
+    height: calc(100vh - 110px);
+    padding-bottom: 200px;
+
+    .menuProjectsScrollbar {
+      margin-top: -5px;
+    }
+  }
+
+  #mobileMenuProjectsContainer {
+    min-height: 95vh;
+  }
+
+  .currentuser-infos {
+    #userOptions {
+      position: relative;
+      z-index: 399;
+      top: 115px !important;
+    }
+
+    .dropdown-button {
+      padding: 0px 5px;
+      cursor: pointer;
+
+      * {
+        transition: .3s ease-out;
+      }
+
+      transition: .3s ease-out;
+
+      &:hover, &.active {
+        * {
+          color: $plus-color;
+        }
+
+        .elipsis {
+          width: auto;
+          opacity: 1;
+          right: 0;
+        }
+      }
+
+      .elipsis {
+        padding: 0px 10px 0px 0px;
+        font-size: 1em;
+        margin-bottom: -10px;
+        position: relative;
+        right: -50px;
+        width: 0;
+        opacity: 0;
+        transition: 0.3s ease-out;
+        text-align: right;
+      }
+
+      .material-icons {
+        position: relative;
+        bottom: 0px;
+
+        left: 2px;
+        padding: 0px;
+
+      }
+    }
+
+    .avatar-container {
+      z-index: 400;
+      width: 50px;
+      height: 50px;
+      margin: -15px -5px -25px -5px;
+      border-radius: 50%;
+      overflow: hidden;
+      //border: 2px solid $focus-color;
+
+    }
+
+    .elipsis {
+      font-size: 1.2em;
+    }
+
+    .dropdown-content {
+      li {
+        min-height: 35px !important;
+
+        * {
+          font-size: 1.05em;
+        }
+
+        &:hover {
+          background-color: $lighter-bg;
+          color: $plus-color;
+
+          * {
+            color: $plus-color !important;
+          }
+        }
+
+        a {
+          padding: 10px 20px;
+          color: $main-color !important;
+        }
+      }
+    }
+  }
+}

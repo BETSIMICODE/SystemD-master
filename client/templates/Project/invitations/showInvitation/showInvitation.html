@@ -1,0 +1,72 @@
+<template name="showInvitation">
+    <div id="showInvitation" class=" gradiant center-align relative" style="padding: 1px 0;">
+
+        <div class="bg-logo">{{>birdsBg}}
+            <img src="/images/icon/systemd-biglogo-grey.png" alt="">
+        </div>
+
+        <div class="contrasted-bg shadow showInvitationContainer  main-color">
+            <div class="row no-margin">
+                <div class="col s12">
+                    <h5 class="left-align plus-color">{{__ ".title"}}</h5>
+                    <div class="hr"></div>
+                </div>
+            </div>
+
+
+            <div class="row no-margin">
+                <div class="col s12 ">
+                    <!--<p class="infoQuotes left-align">-->
+                        <!--{{__ ".infoLink"}}-->
+                    <!--</p>-->
+
+                    <div class="row relative no-margin">
+                        <div class="magicLink relative shadow waves-effect waves-light"
+                             style="{{#unless isDesktop}}padding-bottom: 10px;{{/unless}}" copyMagicLink>
+                            <div class="magicLinkContent {{#if copied}}copied{{/if}}">{{magicLink}}</div>
+                            <div class="absolute"><i class="material-icons " style="{{#if
+                                    copied}}color: #05a4be !important{{/if}}">{{#if copied}}
+                                done{{else}}content_copy{{/if}}</i></div>
+                        </div>
+                    </div>
+                    {{#unless isDesktop}}
+                        <div class="row center-align no-margin small-padding">
+                            <a class="btn btn-floating  focus-bg btn-large waves-effect waves-light" share>
+                                <i class="material-icons left contrasted-color">share</i>
+                            </a>
+                        </div>
+                        {{else}}
+                        <div class="row "></div>
+                    {{/unless}}
+                </div>
+            </div>
+            <div class="row no-margin">
+                <div class="col s12  qrcode ">
+                    <div class="row">
+                        <p class="infoQuotes left-align">
+                            {{__ ".infoQr"}}
+                        </p>
+                        <canvas id="qrCode"></canvas>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 contrasted-plus-bg small-padding shadow rounded">
+                        <p class="infoQuotes left-align">
+                            {{__ ".infoDestroy"}}
+                        </p>
+                        <div class="row center-align">
+                            <a class="btn btn-danger center-align waves-effect waves-light shadow" deleteInvitation>
+                                <i class="material-icons left">delete</i>
+                                {{__ ".destroy"}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="backFooter left-align" style="padding: 0 10px;">
+                <a href="/project/{{currentProject._id}}/params" class=" link"><i
+                        class="material-icons left">arrow_back</i>{{__ '.backToParams'}}</a>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,75 @@
+<template name="categoryList">
+
+    <div id="categoryList" class="">
+        <div class="row">
+            <div class="col s12 mainTopicItem">
+                <ul class="collection shadow no-margin" style="text-align: left">
+                    {{#if mainTopic}}
+                        {{>topicItem topic= mainTopic}}
+                    {{/if}}
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col s12 mainTopicItem">
+                <ul class="collection shadow no-margin" style="">
+                    <li class="collection-item topicItem"
+                        style="padding: 0 !important; "
+                    >
+                        <a href="/project/{{currentProject._id}}/forum?files=true" class="" >
+                            <div class="flex">
+                                <div class="flex-auto elipsis " style="text-align: left">
+                                    <i class="material-icons left">cloud</i><span>
+                                    {{__ ".myFiles"}}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row no-margin">
+            <div class="col s12">
+                <ul class="collapsible transparent no-margin" data-collapsible="expandable">
+                    <li class="categoryItem" style="margin-bottom: 20px;">
+                        {{>spreadsheetList currentProject=currentProject}}
+                    </li>
+                    <li class="categoryItem" style="margin-bottom: 20px;">
+                        {{>spreadsheetList currentProject=currentProject isPad=true}}
+                    </li>
+                    {{#each category in categories}}
+                        {{>categoryItem category=category currentProject=currentProject index=@index}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+
+                {{#if showNewCategory}}
+<div class="closeNewCategory" hideNewCategory></div>
+                    <form id="newCategoryForm" action="" newCategoryForm class="flex contrasted-bg  shadow">
+                        <div class="input-field flex-auto small-padding small-margin">
+                            <input id="newCategoryName" type="text" required class="validate no-margin">
+                            <label for="newCategoryName">{{__ ".categoryName"}}</label>
+                        </div>
+                        <div class="">
+                            <button href="" class="btn btn-floating waves-effect waves-light">{{#if isCreating}}{{>circleSpinner}}{{else}}<i
+                                    class="material-icons prefix">done</i>{{/if}}</button>
+                        </div>
+                    </form>
+                {{else}}
+                    {{#if isAdmin currentProject._id}}
+                    <a href="" class="btn btnStandard full-width  waves-effect waves-light" showNewCategory>
+                        {{__ ".new"}}
+                        <i class="material-icons left">create_new_folder</i>
+                    </a>
+                        {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

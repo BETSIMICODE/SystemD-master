@@ -1,0 +1,38 @@
+<template name="loginPage">
+
+
+    <div id="loginPage" class=" gradiant center-align relative" style="padding: 1px 0;" >
+
+        <div class="bg-logo">{{>birdsBg}}
+            <img src="/images/icon/systemd-biglogo-grey.png" alt="" >
+        </div>
+
+            <div class="contrasted-bg shadow login-form-container center-align">
+                {{> langButton}}
+                <a href="/" class="brand-logo "><h4 class="hand-police center-align main-color">System-<span class="focus-color">D</span></h4></a>
+                <div class="row " id="loginContainer">
+                    <div class="col s12">
+                        <ul class="tabs tabs-fixed-width transparent focus-color">
+
+                            <li class="tab col s6  focus-color"><a class="active" href="#signin">{{__ '.signin'}}</a></li>
+                            <li class="tab col s6  focus-color"><a href="#login">{{__ '.connection'}}</a></li>
+                        </ul>
+                    </div>
+                    <div id="login" class="col s12">
+                        {{>loginForm}}
+                    </div>
+                    <div id="signin" class="col s12 left-align">
+                        {{>signinContainer}}
+                    </div>
+                </div>
+                <div class="loginFooter left-align" style="padding: 0 10px;">
+                <a href="/" class=" link">{{__ '.backToHome'}}</a>
+            </div>
+            </div>
+
+
+
+
+
+    </div>
+</template>

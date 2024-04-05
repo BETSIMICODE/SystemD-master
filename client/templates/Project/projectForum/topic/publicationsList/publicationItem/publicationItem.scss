@@ -1,0 +1,154 @@
+@import "{}/client/scss/variables.scss";
+
+.publicationHeader {
+  position: relative;
+
+  margin: -5px -5px 0px -5px;
+  padding: 7px;
+
+  .authorInfo {
+    height: 3em;
+
+    .userAvatar {
+      display: inline-block;
+      position: relative;
+      width: 3em;
+      height: 3em;
+      margin-right: 5px;
+      border-radius: 50%;
+    }
+
+    .username {
+      color: $plus-color;
+      position: relative;
+      line-height: 1.5em;
+      font-size: 1.2em;
+      display: inline-block;
+    }
+
+    .publicationDate {
+      line-height: 1em;
+      font-size: 0.85em;
+      color: $minus-color;
+      font-style: italic;
+    }
+  }
+
+}
+.pinnedHead{
+  color: $minus-color !important;
+  font-size: 0.9em;
+  font-style: italic;
+}
+.publicationItem {
+  .likeBox {
+    background-color: $lighter-bg;
+    border-radius: 15px;
+    height: 24px;
+    padding: 3px;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 400;
+
+    * {
+      opacity: 0.7;
+    }
+
+    .material-icons {
+      font-size: 18px;
+      transition: 0.3s;
+      margin: 1px 0 0 0;
+    }
+
+    .liked {
+      color: rgba($danger-text, 0.9);
+    }
+    .pinned {
+      color: rgba($focus-color, 0.9)
+    }
+    .likeCounter {
+      position: relative;
+      top: -5px;
+      right: -2px;
+
+
+    }
+
+    &:hover {
+      background-color: $light-bg;
+
+      .unliked {
+        color: rgba($danger-text, 0.9);
+      }
+
+      .liked {
+        color: $main-color;
+      }
+      .pinned {
+        color: $main-color;
+      }
+      .unpinned {
+        color: rgba($focus-color, 0.9);
+      }
+
+    }
+  }
+
+  .preloader-wrapper {
+    width: 20px;
+    height: 20px;
+    margin-top: calc(50% - 7.5px);
+    cursor: wait;
+  }
+
+
+  .publicationContent {
+    margin: 0 5%;
+  }
+
+  .commentBox {
+
+    margin: 0 -10px -10px -10px;
+    padding: 5px;
+    position: relative;
+
+    .hr {
+      width: calc(90% - 15px);
+      margin-left: 5%;
+      top: -11px;
+      height: 2px;
+      position: absolute;
+
+    }
+  }
+
+  .publicationFooter {
+    text-align: right;
+    margin-top: -4px;
+    padding-right: 5%;
+    height: 1.5em !important;
+
+    a {
+      margin-left: 0.4em;
+      position: relative;
+      font-size: 0.95em;
+
+      i {
+        position: relative;
+        top: 0.15em;
+        margin-right: 0.2em;
+        font-size: 1em;
+      }
+    }
+  }
+  .row .col .btnStandard {
+    margin-left: 0.5em;
+  }
+}
+.pinnedPublication{
+  .smartifiedContent{
+    font-size: 0.95em !important;
+    color: rgba($main-color, 0.8) !important;
+  }
+
+}

@@ -1,0 +1,30 @@
+{
+	"lastUpdate": "1580583142196",
+	"newsArray": [
+		{
+			"title": "Was ist neu auf System-d.org?",
+			"content": "Wie Sie vielleicht bemerkt haben, sind wir immer noch hier, um die Werkzeuge zu entwickeln, die Sie brauchen! In den letzten Wochen haben wir die Website weiter verbessert: \n\t - Italienische Übersetzungen (vielen Dank an die Mitwirkenden, Sie sind großartig!) \n\t - Die Möglichkeit, als ein Projektmitglied Vorschläge zu den Umfragen hinzuzufügen \n - Die Möglichkeit, bis zu 200 Personen in einem einzigen Einladungslink einzuladen (im Vergleich zu 15 bisher) \n\t - Die Möglichkeit, Kalender im iCalendar-Format zu importieren und zu exportieren. \n\n Vielen Dank noch einmal an alle Mitwirkenden für Ihre Hilfe und Vorschläge und an alle, die den Riot-Chat am Leben erhalten 😊",
+			"img": "https://imgur.com/UZbNDc3.png",
+			"timestamp": 1580583142196
+		},
+		{
+			"title": "Fertigstellung des Newsmoduls!",
+			"content": "Ein Feature, das uns schon seit einiger Zeit am Herzen liegt: Sie täglich über Projektneuigkeiten informieren zu können. Wenn neue Nachrichten verfügbar sind, sehen Sie das kleine Nachrichten-Logo in der rechten unteren Ecke blinken, so dass das (kleine) Entwicklerteam, das wir sind, mit Ihnen über den Fortschritt des Projekts kommunizieren kann!\nDanke an den Entwickler, den wir diesen Sommer kennengelernt haben, der wesentlich dazu beigetragen hat, dieses Feature zu ermöglichen.",
+			"img": "https://i.imgur.com/N04s1mh.gif",
+			"timestamp": 1576949653952
+		},
+		{
+			"title": "System-d.org wird jeden Tag besser",
+			"content": "Dank der Ideen, die Sie einbringen, wird System-d.org jeden Tag besser! Heute, Einführung der neuesten kleinen Ergänzungen:\n\n- Scroll Debugging der ToDo-Liste auf Firefox.\n- Hinzufügen eines Labels über den Aufgabengruppen in der ToDo-Liste\n- Möglichkeit zur Suche auf der Karte\n- Möglichkeit zum Hochladen einer bestehenden Tabelle in die Tabellenkalkulation Ihrer Projekte\n- Fähigkeit, mehrere Elemente in Umfragen zu prüfen\n- Änderung der Lizenz auf die freieste GNU AFFERO GPL",
+			"img": "https://i.imgur.com/TJI3cXw.gif",
+			"timestamp": 1576949653952
+		},
+		{
+			"title": "System-d.org ist auf Spanisch verfügbar!",
+			"content": "Vielen Dank an die Freunde, die an der Übersetzung von system-d.org ins SPANISCHE gearbeitet haben!\n🏴‍☠️🏴‍☠️🏴‍☠️🇨🇺🇪🇸🇨🇴🇨🇱🇲🇽🏴‍☠️🏴‍☠️🏴‍☠️\n\nDie freie, verschlüsselte Projektplattform ist jetzt in Französisch, Englisch und Spanisch verfügbar!",
+			"img": "https://imgur.com/Ex8dfl1.png",
+			"timestamp": 1576949653952
+		}
+	]
+}
+

@@ -1,0 +1,109 @@
+@import "{}/client/scss/variables.scss";
+
+.showPollContent {
+  .answerTotalCount {
+    font-style: italic;
+    font-size: 0.9em;
+    color: $minus-color;
+    margin: 5px 0 10px 0;
+  }
+
+  .collection {
+    border: none;
+    margin: 0;
+
+
+    .collection-pollOptions {
+      border: none;
+      margin-top: 5px;
+
+      .countContainer {
+        height: 1.2em;
+        background-color: $main-bg;
+        margin-left: 35px;
+        border-radius: 0.6em;
+
+        .countLabel {
+          font-style: italic;
+          font-size: 0.9em;
+          line-height: 1.2em;
+          color: $minus-color;
+          padding: 0.1em 0.6em;
+        }
+
+        .pollCount {
+          height: 100%;
+          content: " ";
+          background-color: $blue-highlight-color;
+          border-radius: 0.6em;
+        }
+      }
+    }
+
+    .addPropositionBtn {
+      float: left;
+      cursor: pointer;
+      text-transform: uppercase;
+      margin-top: 15px;
+      position: relative;
+      color: $link-color;
+
+      i {
+        color: $link-color;
+        position: relative;
+        top: -3px;
+        margin-right: 5px;
+      }
+    }
+
+    .newProposition {
+      padding-top: 10px;
+
+      .propositionForm {
+        margin-top: 10px;
+        position: relative;
+
+        .removePropositionBtn {
+          padding-top: 15px;
+
+          i {
+            color: $link-color;
+          }
+        }
+
+        .newPropositionInput {
+          margin-top: 10px;
+          margin-left: 10px;
+          padding-left: 10px;
+          background-color: $main-bg;
+          border-radius: 15px;
+          box-shadow: none;
+          border: none;
+          height: 2.2em;
+
+          &::placeholder {
+            color: $minus-color;
+            font-style: italic;
+          }
+        }
+
+        button {
+          i {
+            color: $minus-color;
+            &:hover {
+              color: $plus-color;
+            }
+          }
+          position: absolute;
+          top: 15px;
+          right: 5px;
+          background-color: transparent;
+          border: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+  }
+}

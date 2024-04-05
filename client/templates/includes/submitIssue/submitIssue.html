@@ -1,0 +1,133 @@
+<template name="submitIssue">
+    <div id="openModalSubmitIssueContainer">
+        <a class="waves-effect waves-light btn modal-trigger " href="#modalSubmitIssue"><i
+                class="material-icons left">sync_problem</i>
+            {{__ ".btnLabel"}}
+        </a>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modalSubmitIssue" class="modal contrasted-bg">
+        <div class="modal-content small-padding contrasted-bg main-color">
+            <div class="row">
+                <ul class="tabs tabs-fixed-width  transparent focus-color">
+                    <li class="tab col m6">
+                        <a href="#" class="active " bugReport>
+                            <!--<i class="material-icons">bug_report</i>-->
+                            {{__ '.bugReport'}}
+                        </a>
+                    </li>
+                    <li class="tab col m6">
+                        <a href="#" class="" suggestion>
+                            <!--<i class="material-icons">lightbulb_outline</i>-->
+                            {{__ '.suggestion'}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            {{#unless issueUrl}}
+                <div class="row ">
+                    <div class="col s12 ">
+                        <form action="#" id="submitIssueForm" class="center-align ">
+                {{#if compare requestType "==" "bugReport"}}
+                            <div class="row">
+                                <div class="col s12"><p class="">
+
+                                    {{__ ".precisions"}}
+                                </p></div>
+
+                            </div>
+                    {{/if}}
+                            <div class="row no-margin">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">
+                                        {{#if compare requestType "==" "bugReport"}}
+                                            bug_report
+                                        {{else}}
+                                            lightbulb_outline
+                                        {{/if}}
+                                    </i>
+                                    <textarea id="submitIssueContent" class="materialize-textarea" required
+                                              data-length="1000"></textarea>
+                                    <label for="submitIssueContent">
+                                        {{#if compare requestType "==" "bugReport"}}
+                                            {{__ ".bugReportLabel"}}
+                                        {{else}}
+                                            {{__ ".sugestionLabel"}}
+                                        {{/if}}</label>
+                                </div>
+                            </div>
+                            {{#if compare requestType "==" "bugReport"}}
+
+                                <div class="row">
+                                    <div class="col s12 m9">
+                                        <p class="infoQuotes">
+                                            {{__ ".allowDeviceInfo"}}
+                                        </p>
+                                    </div>
+                                    <div class="col s12 m3">
+                                        <div class="switch" style="margin-top: 20px">
+                                            <label>
+                                                {{__ ".decline"}}
+                                                <input type="checkbox" checked id="withDeviceInfo">
+                                                <span class="lever"></span>
+                                                {{__ ".authorize"}}
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {{/if}}
+                            {{#unless currentUserId}}
+                                <div class="row">
+                                    <div class="col s12 m8 offset-m2  l6 offset-l4  relative flex">
+                                        <div class="relative captcha" style="padding: 10px 20px 0 0">
+                                            {{{captcha}}}
+                                            <a href="#" class="microBtn {{#if
+                                                    isDesktop}} tooltipped {{/if}}shadow main-bg waves-light waves-effect absolute"
+                                               data-position="top"
+                                               data-delay="50" data-tooltip="{{__ ".refreshCaptcha"}}"
+                                               style="right: 0; top: 0" refreshCaptcha>
+                                                <i class="material-icons">refresh</i>
+                                            </a>
+                                        </div>
+                                        <div class="input-field flex-auto " style="margin-left: 15px">
+                                            <input id="SubmitIssueCaptcha" type="text" class="validate" required>
+                                            <label for="SubmitIssueCaptcha">{{__ ".captcha"}}</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {{/unless}}
+                            <div class="row center-align no-margin">
+                                <button href="#" class="btn btnStandard center-align waves-effect waves-light shadow"><i
+                                        class="material-icons right">sync_problem</i>{{__ '.submit'}}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col s12" style="margin-top: 20px; text-align: right">
+                        <a href="https://github.com/HUB-HUmanBeing/SystemD/issues" class="link " target="_blank">{{__
+                                '.githubDirectLink'}}</a><br/>
+                        <a href="https://riot.im/app/#/room/#system-d:matrix.org" class="link " target="_blank">{{__
+                                '.riotDirectLink'}}</a>
+                    </div>
+
+                </div>
+            {{else}}
+                <div class="small-margin small-padding">
+                    <div class="row">
+                        <div class="col s12">
+                            <h5><i class="material-icons right">done</i>{{__ ".succesMessage"}}</h5>
+                            <a class="link" href="{{issueUrl}}" target="_blank">{{__ ".githubLink"}}</a>
+                        </div>
+                    </div>
+                    <div class="row center-align no-margin">
+                        <button class="btn btnStandard center-align waves-effect waves-light shadow  " closeModal><i
+                                class="material-icons right">keyboard_return</i>{{__ '.return'}}
+                        </button>
+                    </div>
+                </div>
+            {{/unless}}
+        </div>
+    </div>
+</template>

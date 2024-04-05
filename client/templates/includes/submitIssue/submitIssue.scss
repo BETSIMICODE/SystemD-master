@@ -1,0 +1,52 @@
+@import "{}/client/scss/variables.scss";
+
+#openModalSubmitIssueContainer{
+  position: fixed;
+  bottom: 55px;
+  right: 0;
+  display: inline-block;
+  visibility: hidden;
+  z-index: 6000;
+  a{
+    visibility: visible;
+    z-index: 6000;
+    position: relative;
+    padding: 0 3px;
+
+    background-color: $blue-highlight-color;
+    height: 30px;
+    line-height: 30px;
+    right: calc(30px - 100%);
+
+    opacity: 0.7;
+    transition: 0.5s ease-out;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    i{
+      font-size: 25px;
+    }
+    &:hover{
+      right: 0;
+      opacity: 1;
+    }
+  }
+
+
+}
+#modalSubmitIssue{
+  max-width: 600px;
+  max-height: 90%;
+  .tab a {
+    font-size: 1.2em;
+    color: $focus-color !important;
+
+  }
+  .infoQuotes{
+    font-size: 0.8em;
+  }
+
+  .indicator {
+    background-color: $focus-color;
+    height: 3px;
+  }
+}

@@ -1,0 +1,19 @@
+@import "{}/client/scss/variables.scss";
+
+#publicationsList {
+  .loadMore {
+    position: relative;
+    top: -10px;
+    z-index: 201;
+    i {
+      position: relative;
+      bottom: -7px;
+    }
+
+    span {
+      display: inline-block;
+      font-size: 0.95em;
+      margin: -5px 0;
+    }
+  }
+}

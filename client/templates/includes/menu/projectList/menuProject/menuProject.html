@@ -1,0 +1,42 @@
+<template name="menuProject">
+    <li class="menuProjectItem" id="menuProject-{{project.asymEnc_projectId}}">
+        <div class="collapsible-header transparent {{#if compare currentProjectId '=='
+                                                         project.asymEnc_projectId}}active{{/if}}" projectTitle>
+            <div class="flex full-width flex-middle">
+                <div class="project-avatar relative" style="">
+                    {{>projectAvatar projectId=project.asymEnc_projectId}}
+
+                </div>
+                    {{#if totalNotifs}}
+                        <div class="notifCount waves-effect waves-light  absolute"
+                             id="projectNotifications#{{project.asymEnc_projectId}}#all" openNotifModal style="z-index: 201">
+                            {{onlyZeroToNine totalNotifs}}
+                        </div>
+                    {{/if}}
+
+                <div class="flex-auto elipsis projectTitle ">
+                    {{project.asymEnc_projectName}}
+                </div>
+            </div>
+
+        </div>
+        <div class="collapsible-body transparent">
+            <div class="collection transparent">
+                {{#each section in sections}}
+                    <a href="/project/{{project.asymEnc_projectId}}/{{section.path}}"
+                       class="collection-item transparent relative {{section.isActive}}">
+                        <i class="material-icons left ">{{section.icon}}</i>
+                        {{section.name}}
+                        {{#if section.notifsCount}}
+                            <div class="notifCountSection absolute waves-effect waves-light "
+                                 id="projectNotifications#{{project.asymEnc_projectId}}#{{section.path}}"
+                                 openNotifModal>
+                                {{onlyZeroToNine section.notifsCount}}
+                            </div>
+                        {{/if}}
+                    </a>
+                {{/each}}
+            </div>
+        </div>
+    </li>
+</template>

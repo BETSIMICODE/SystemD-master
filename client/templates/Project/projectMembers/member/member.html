@@ -1,0 +1,95 @@
+<template name="member">
+    <li class="collection-item avatar contrasted-bg memberItem ">
+        <div class="circle responsive-img memberAvatar">
+            {{>avatar userId=member.symEnc_userId}}
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <span class="title">{{member.symEnc_username}}</span>
+                <div class="infoQuotes">
+                    {{__ ".since"}} {{formatDate joinAtTs false}}
+                    {{#if member.invitedBy}}
+                        <br>{{__ ".invitedBy"}} {{usernameFromMemberId member.invitedBy}}
+                    {{else}}
+                        <br>{{__ ".projectCreator"}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+        {{#if showParams}}
+            <div class="fixed-action-btn horizontal secondary-content" style="max-height: 50px">
+                <a class="btn-floating btn main-bg main-color waves-effect waves-light">
+                    <i class="large material-icons main-color">settings</i>
+                </a>
+                <ul>
+                    {{#if compare currentUserIsAdmin '&!' memberIsAdmin}}
+                        <li>
+                            <a class="btn-floating main-bg tooltipped waves-effect waves-light" data-position="bottom"
+                               data-delay="50" data-tooltip="{{__ ".kickUser"}}" openKickUser>
+                                <i class="material-icons main-color">clear</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn-floating main-bg tooltipped waves-effect waves-light" data-position="bottom"
+                               data-delay="50" data-tooltip="{{__ ".promoteUser"}}" openPromoteUser>
+                                <i class="material-icons main-color">verified_user</i>
+                            </a>
+                        </li>
+                    {{/if}}
+                    {{#if compare currentUserId "===" member.symEnc_userId}}
+                        <li>
+                            <a class="btn-floating main-bg tooltipped waves-effect waves-light" data-position="bottom"
+                               data-delay="50" data-tooltip="{{__ ".quitProject"}}" openQuitProject>
+                                <i class="material-icons main-color">exit_to_app</i>
+                            </a>
+                        </li>
+                    {{/if}}
+                </ul>
+            </div>
+        {{/if}}
+        {{#if kickUser}}
+            <div class="row action">
+                <div class="col s12 center-align">
+                    <p class="left-align " style="margin-bottom: 15px">{{__ ".kickUserInfo"}}</p>
+                    <button class="btn  btn-danger center-align waves-effect waves-light shadow" kickUser><i
+                            class="material-icons right">clear</i>{{__ '.kickUser'}}
+                    </button>
+                </div>
+            </div>
+        {{/if}}
+        {{#if promoteUser}}
+            <div class="row action">
+                <div class="col s12 center-align">
+                    <p class="left-align " style="margin-bottom: 15px">{{__ ".promoteUserInfo"}}</p>
+                    <button class="btn  btnStandard center-align waves-effect waves-light shadow " promoteUser><i
+                            class="material-icons right">verified_user</i>{{__ '.promoteUser'}}
+                    </button>
+                </div>
+
+            </div>
+        {{/if}}
+        {{#if quitProject}}
+            <div class="row action">
+                <div class="col s12 center-align">
+                    {{#if isDeletable}}
+                        {{>deleteProject currentProject = currentProject}}
+                        {{else}}
+                    {{#if isMemberAllowedToQuit}}
+                        <p class="left-align " style="margin-bottom: 15px">{{__ ".quitProjectInfo"}}</p>
+                    {{else}}
+                        <p class="left-align danger-color" style="margin-bottom: 15px">{{__ ".quitProjectError"}}
+                        <p class="left-align infoQuotes">{{__ ".quitProjectErrorTips"}}</p>
+                        </p>
+
+                    {{/if}}
+                    <button class="btn  {{#if isMemberAllowedToQuit}}btn-danger{{else}}btnDisabled{{/if}} center-align waves-effect waves-light shadow " quitProject><i
+                            class="material-icons right">exit_to_app</i>{{__ '.quitProject'}}
+                    </button>
+                    {{/if}}
+                </div>
+
+            </div>
+        {{/if}}
+    </li>
+</template>

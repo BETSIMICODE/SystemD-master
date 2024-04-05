@@ -1,0 +1,259 @@
+@import "{}/client/scss/variables.scss";
+
+#activityDetail {
+  width: 100%;
+  position: relative;
+  height: 100%;
+
+  h5 {
+    margin: 20px 10px 0px 10px;
+  }
+
+  #detailIconMarker {
+    .iconMarkerHead {
+      position: relative;
+      padding: 10px 0;
+
+      .colorLegendLabel {
+        position: absolute;
+        top: 0px;
+        font-style: italic;
+        right: 10px;
+        text-align: right;
+        line-height: 1.4em;
+        margin-top: 0.4em;
+        color: $plus-color;
+      }
+
+      .btn-floating {
+        opacity: 0.7;
+        position: absolute;
+        background-color: rgba($plus-color, 0.2);
+
+        i {
+          color: $plus-color;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .editIconBtn {
+        bottom: 15px;
+        right: -5px;
+      }
+
+      .editColorBtn {
+        top: 10px;
+        left: 10px;
+      }
+
+      .iconContainer {
+
+        display: inline-block;
+
+        i {
+          font-size: 3em !important;
+        }
+      }
+    }
+
+    .editIcon {
+      margin-bottom: 35px;
+
+      .colorPicker {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .publicationHeader {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    margin: 0;
+
+    .username {
+      font-size: 1em !important;
+      margin-top: 0.2em;
+      color: $main-color;
+    }
+
+    .userAvatar {
+      width: 2.6em;
+      height: 2.6em;
+      margin-top: 10px;
+    }
+
+    .publicationDate {
+      text-align: right;
+      line-height: 1.4em;
+      margin-top: 0.4em;
+      color: $plus-color;
+    }
+  }
+
+  .coordinates {
+    font-size: 0.9em;
+    font-style: italic;
+    padding: 0 5px;
+  }
+
+  .sectionLabel {
+    margin: 5px 10px 5px 0px;
+    font-size: 1.1em;
+  }
+.coordinates{
+  margin: 10px 0;
+}
+  #EditActivityForm {
+    #activityTitle {
+      font-size: 1.25em;
+      color: $plus-color;
+
+      &::placeholder {
+        font-style: italic;
+        color: $minus-color;
+      }
+    }
+
+    .editActivityDetail {
+      margin-top: 10px;
+      label{
+
+      }
+      #editActivityDetail{
+
+      }
+      .iframeContainer{
+        border:10px solid $contrasted-bg;
+
+      }
+      .small-margin{
+font-size: 0.95em;
+color: $plus-color;
+        .smartifiedContent{
+          cursor: text;
+        }
+        i{
+          cursor: text;
+          font-size: 1.1em;
+          color: $minus-color;
+        }
+      }
+    }
+
+    .input-field {
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 25px;
+    }
+
+    textarea {
+      padding: .3rem 0;
+    }
+  }
+
+  .weekdays {
+    margin-top: 10px;
+
+    .weekDay {
+      background-color: $main-bg;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: $main-color;
+      padding-top: 5px;
+
+      &:hover {
+        color: $plus-color;
+        background-color: $lighter-bg;
+      }
+
+      &.checkedWeekDay {
+        color: $plus-color;
+        background-color: $blue-highlight-color;
+      }
+    }
+  }
+
+  .activityMembers {
+    .infoQuotes {
+      margin: 5px 0;
+      font-size: 0.9em;
+      font-style: italic;
+    }
+
+    .btn-floating {
+      background-color: $light-bg;
+      color: $main-color;
+
+      &:hover {
+        color: $plus-color;
+        background-color: $blue-highlight-color;
+      }
+    }
+  }
+
+  #modalInviteMembers {
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 0;
+
+    .btn-floating {
+      background-color: $light-bg;
+      color: $main-color;
+
+      &:hover {
+        color: $plus-color;
+        background-color: $blue-highlight-color;
+      }
+    }
+
+    .modalInviteContent {
+      position: relative;
+      width: 420px;
+      max-width: 90%;
+      max-height: 80vh;
+      z-index: 1000;
+      margin: 10vh auto;
+
+      h5 {
+        position: relative;
+        font-size: 1.1em;
+        //line-height: 3em;
+        margin: 10px;
+      }
+
+      i {
+        line-height: 1.7em;
+      }
+
+      .btn-floating {
+        margin-top: -5px;
+
+        i {
+          line-height: 40px !important;
+        }
+      }
+    }
+
+
+  }
+
+  .modalBg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: $lighter-bg;
+    opacity: 0.5;
+    z-index: 999;
+  }
+}

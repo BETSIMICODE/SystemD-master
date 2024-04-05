@@ -1,0 +1,38 @@
+@import "{}/client/scss/variables.scss";
+
+.carousel-item {
+  &.active {
+    cursor: default !important;
+  }
+}
+.download-file-preview{
+
+}
+.fileIcon{
+width: 100%;
+  .download-file{
+    position: absolute;
+    top: 5px;
+    left: 27px;
+    background-color: $light-bg;
+    transition: 0.3s;
+
+    * {
+      transition: 0.3s;
+      color: $main-color
+    }
+
+    &:hover {
+      background-color: $blue-highlight-color !important;
+
+      * {
+        color: $plus-color;
+      }
+    }
+  }
+
+  .downloadLink {
+    display: none;
+  }
+
+}
